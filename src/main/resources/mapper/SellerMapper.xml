@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.neusoft.mapper.SellerMapper">
+<resultMap id="sellerMap" type="edu.neusoft.domain.Seller">
+    <id column="sid" property="sid"/>
+    <result property="sname" column="sname"/>
+    <result property="spassword" column="spassword" />
+    <result property="sphone" column="sphone"/>
+</resultMap>
+   <select id="getAllSeller" resultMap="sellerMap">
+       select * from seller
+   </select>
+
+    <select id="loginSeller" resultMap="sellerMap">
+        select * from `seller` where sname=#{sname}
+    </select>
+
+    <insert id="registSeller" parameterType="edu.neusoft.domain.Seller">
+        insert into seller values (0,#{sname},#{spassword},#{sphone});
+    </insert>
+    
+    <update id="updateSeller" parameterType="edu.neusoft.domain.Seller">
+        update seller
+            <set>
+                sname = #{sname},
+                spassword = #{spassword},
+                sphone =#{sphone}
+            </set>
+        where sid = #{sid}
+    </update>
+
+    <delete id="deleteSelle">
+        delete
+        from seller
+        where sid=#{sid}
+    </delete>
+</mapper>

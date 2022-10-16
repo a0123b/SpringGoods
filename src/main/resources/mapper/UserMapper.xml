@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.neusoft.mapper.UserMapper">
+    <resultMap id="result" type="edu.neusoft.domain.User">
+        <id property="uid" column="uid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="sex" column="sex" />
+        <result property="userphone" column="userphone" />
+        <result property="userdate" column="userdate" />
+        <result property="userregion" column="userregion" />
+        <result property="adress" column="adress" />
+    </resultMap>
+
+    <resultMap id="orderMap" type="edu.neusoft.domain.ShowOrder">
+        <result column="uid" property="uid"/>
+        <result column="oid" property="oid"/>
+        <result column="order_name" property="order_name"/>
+        <result column="order_price" property="order_price"/>
+        <result column="order_img" property="order_img"/>
+    </resultMap>
+
+    <select id="getAllUsers" resultMap="result">
+        select * from user
+    </select>
+    <select id="loginUser" resultMap="result">
+        select * from user where username=#{username}
+    </select>
+
+    <insert id="registUser" parameterType="edu.neusoft.domain.User">
+        insert into user values (0,#{username},#{password},#{sex},#{userphone},#{userdate},#{userregion},#{adress})
+    </insert>
+
+    <update id="updateUser" parameterType="edu.neusoft.domain.User">
+        update user
+            <set>
+                username = #{username},
+                password = #{password},
+                sex = #{sex},
+                userphone = #{userphone}
+            </set>
+    </update>
+
+    <delete id="deleteUser">
+        delete from user where uid = #{uid}
+    </delete>
+
+    <select id="selectOrder" resultMap="orderMap">
+        select * from `order`
+        join `user` on `user`.uid = `order`.o_sid
+        where `user`.uid = #{uid}
+    </select>
+</mapper>
