@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.neusoft.mapper.ProductMapper">
+<!--    property实体类  column数据库-->
+<resultMap id="productMap" type="edu.neusoft.domain.Product">
+    <id column="product_id" property="product_id"/>
+    <result property="product_name" column="product_name"/>
+    <result property="category_id" column="category_id"/>
+    <result property="product_title" column="product_title"/>
+    <result property="product_intro" column="product_intro"/>
+    <result property="product_picture" column="product_picture"/>
+    <result property="product_price" column="product_price"/>
+    <result property="product_selling_price" column="product_selling_price"/>
+    <result property="product_num" column="product_num"/>
+    <result property="product_sales" column="product_sales"/>
+</resultMap>
+    <select id="showGoods" resultMap="productMap">
+        select * from product
+    </select>
+
+    <update id="updateGoods" parameterType="edu.neusoft.domain.Product">
+        update product
+        <set>
+            product_name = #{product_name},
+            category_id = #{category_id},
+            product_title = #{product_title},
+            product_intro = #{product_intro},
+            product_picture = #{product_picture},
+            product_price = #{product_price},
+            product_selling_price = #{product_selling_price},
+            product_num = #{product_num},
+            product_sales = #{product_sales},
+        </set>
+        where product_id = #{product_id}
+    </update>
+
+    <insert id="insertGoods" parameterType="edu.neusoft.domain.Product">
+        insert into product values (0,#{product_name},#{category_id},#{product_title},#{product_intro},#{product_picture},#{product_price},#{product_selling_price},#{product_num},#{product_sales})
+    </insert>
+
+    <delete id="deleteGoods">
+        delete from product where product_id = #{product_id}
+    </delete>
+
+    <select id="GetProductById" resultMap="productMap">
+        select * from product where product_id = #{product_id}
+    </select>
+
+</mapper>

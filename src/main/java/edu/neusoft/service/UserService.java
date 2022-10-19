@@ -1,6 +1,6 @@
 package edu.neusoft.service;
 import edu.neusoft.domain.User;
-import edu.neusoft.utils.Result;
+import edu.neusoft.utils.UserResult;
 
 /**
  * 姓名： 郑展东
@@ -9,18 +9,14 @@ import edu.neusoft.utils.Result;
  * @Date 2022年09月29日17:17
  */
 public interface UserService {
-   Result getAllUsers();
+   UserResult getAllUsers();
 
-   Result loginService(String user_name, String password);
+   UserResult loginService(String username, String password);
 
-   Result registService(User user);
+   UserResult registService(User user);
 
-   Result updateService(User user);
+   UserResult updateService(User user);
 
-   Result deleteService(int uid);
-
-   Result selectGoodsById(Integer uid);
-
-
+   UserResult deleteService(int user_id);
 
 }

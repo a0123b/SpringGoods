@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.neusoft.mapper.ProductPictureMapper">
+<!--    property实体类  column数据库-->
+<resultMap id="productpictureMap" type="edu.neusoft.domain.ProductPicture">
+    <id column="id" property="id" />
+    <result column="product_id" property="product_id"/>
+    <result property="product_picture" column="product_picture"/>
+    <result property="intro" column="intro" />
+</resultMap>
+
+    <select id="GetDetailsPicture" resultMap="productpictureMap">
+        select *
+        from product_picture
+        where product_id = #{product_id}
+    </select>
+
+</mapper>

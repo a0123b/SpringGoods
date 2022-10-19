@@ -16,15 +16,11 @@ public interface UserMapper {
 
     List<User> getAllUsers();
 
-    User loginUser(String user_name);
+    User loginUser(String username);
 
     int registUser(User user);
 
     int updateUser(User user);
 
-    int deleteUser(int uid);
-
-
-
-
+    int deleteUser(int user_id);
 }

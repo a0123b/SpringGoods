@@ -11,17 +11,17 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Result {
+public class UserResult {
 
     private Integer statusCode;
 
     private String  code;
 
-    private Object Product;
+    private Object user;
 
     private String message;
 
-    public Result(int statusCode, String code , String message) {
-        this(statusCode, code, null, message);
+    public UserResult(int statusCode, String code , String message) {
+        this(statusCode, code,null, message);
     }
 }

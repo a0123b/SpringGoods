@@ -17,12 +17,13 @@ import java.util.Date;
 @NoArgsConstructor
 public class User{
 
-    private int uid;
+    private int user_id;
     private String username;
     private String password;
-    private String sex;
+    private String usersex;
     private String userphone;
     private Date userdate;
     private String userregion;
-    private String adress;
+    private String useraddress;
+    private String useremail;
 }
