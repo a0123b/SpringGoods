@@ -26,8 +26,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 
 
     @Override
-    public ProductCategoryResult GetCategoryId(Integer category_id) {
-        List<ProductCategory> list = productCategoryMapper.GetCategoryId(category_id);
+    public ProductCategoryResult GetCategoryName(String  category_name) {
+        List<ProductCategory> list = productCategoryMapper.GetCategoryName(category_name);
         if (Objects.isNull(list)){
             return new ProductCategoryResult(404,"002","获取分类失败");
         }

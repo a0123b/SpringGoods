@@ -56,14 +56,16 @@ import java.util.Objects;
     //删除商品信息
     @Override
     public ProductResult deleteGoods(Integer product_id) {
+        deleteKey();
         int line = productMapper.deleteGoods(product_id);
+        addKey();
         if (line > 0){
             return new ProductResult(200,"001",product_id,"删除成功");
         }
         return new ProductResult(500,"002",product_id,"删除失败");
     }
 
-
+    //根据ID获取商品
     @Override
     public ProductResult GetProductById(int product_id){
         Product product = productMapper.GetProductById(product_id);
@@ -71,5 +73,13 @@ import java.util.Objects;
             return new ProductResult(404,"002","获取失败");
         }
         return new ProductResult(200,"001",product,"获取成功");
+    }
+
+    public void deleteKey(){
+        productMapper.deleteKey();
+    }
+
+    public void addKey(){
+        productMapper.addKey();
     }
 }

@@ -18,11 +18,11 @@
     <result property="product_sales" column="product_sales"/>
 </resultMap>
 
-    <select id="GetCategoryId" resultMap="productcategoryMap">
+    <select id="GetCategoryName" resultMap="productcategoryMap">
         select * from
         product p join category c
         on p.category_id = c.category_id
-        where c.category_id = #{category_id};
+        where c.category_name = #{category_name};
     </select>
 
 </mapper>

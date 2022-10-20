@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.neusoft.mapper.ShoppingCartMapper">
+<!--    property实体类  column数据库-->
+<resultMap id="shoppingcartMap" type="edu.neusoft.domain.ShoppingCart">
+    <id column="id" property="id"/>
+    <result property="user_id" column="user_id"/>
+    <result property="product_id" column="product_id"/>
+    <result property="num" column="num"/>
+
+</resultMap>
+    <insert id="insertShoppingCart" parameterType="edu.neusoft.domain.ShoppingCart">
+        insert into shoppingcart values (0,#{user_id},#{product_id},#{num})
+    </insert>
+
+    <delete id="deleteShoppingCart">
+        delete from shoppingcart where id = #{id}
+    </delete>
+
+    <update id="updateShoppingCart" parameterType="edu.neusoft.domain.ShoppingCart">
+        update shoppingcart
+        <set>
+            user_id = #{user_id},
+            product_id = #{product_id},
+            num = #{num},
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="selectShoppingCartByUserId" resultMap="shoppingcartMap">
+        select * from shoppingcart where user_id=#{user_id}
+    </select>
+
+</mapper>

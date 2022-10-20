@@ -40,8 +40,16 @@
         insert into product values (0,#{product_name},#{category_id},#{product_title},#{product_intro},#{product_picture},#{product_price},#{product_selling_price},#{product_num},#{product_sales})
     </insert>
 
+    <update id="deleteKey">
+        SET FOREIGN_KEY_CHECKS=0;
+    </update>
+
+    <update id="addKey">
+        SET FOREIGN_KEY_CHECKS=1;
+    </update>
+
     <delete id="deleteGoods">
-        delete from product where product_id = #{product_id}
+        delete from product where product_id = #{product_id};
     </delete>
 
     <select id="GetProductById" resultMap="productMap">

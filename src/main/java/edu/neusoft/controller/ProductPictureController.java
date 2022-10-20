@@ -1,10 +1,16 @@
 package edu.neusoft.controller;
 
+import cn.hutool.core.io.FileUtil;
 import edu.neusoft.service.ProductPictureService;
+import edu.neusoft.utils.ImageToBase64Util;
 import edu.neusoft.utils.ProductPictureResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
 
 /**
  * 姓名： 郑展东
@@ -16,6 +22,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/productpicture")
 public class ProductPictureController {
+
     @Resource
     private ProductPictureService productPictureService;
 

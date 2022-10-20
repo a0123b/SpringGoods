@@ -13,5 +13,5 @@ import java.util.List;
  */
 @Mapper
 public interface ProductCategoryMapper {
-    List<ProductCategory> GetCategoryId(Integer category_id);
+    List<ProductCategory> GetCategoryName(String category_name);
 }

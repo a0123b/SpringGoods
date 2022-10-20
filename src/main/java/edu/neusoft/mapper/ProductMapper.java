@@ -26,6 +26,9 @@ public interface ProductMapper {
 
     Product GetProductById(int product_id);
 
+    void deleteKey();
+    void addKey();
+
 
 
 }

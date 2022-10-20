@@ -21,8 +21,8 @@ public class ProductCateGoryController {
     private ProductCategoryService productCategoryService;
 
     //根据商品分类名称获取商品信息
-    @GetMapping("/getCategoryId")
-    public ProductCategoryResult GetCategoryId(@RequestParam Integer category_id){
-        return productCategoryService.GetCategoryId(category_id);
+    @GetMapping("/getCategoryName")
+    public ProductCategoryResult GetCategoryId(@RequestParam String category_name){
+        return productCategoryService.GetCategoryName(category_name);
     }
 }

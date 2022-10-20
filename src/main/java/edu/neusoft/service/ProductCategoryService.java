@@ -10,5 +10,5 @@ import edu.neusoft.utils.ProductCategoryResult;
  * @Date 2022年10月18日8:04
  */
 public interface ProductCategoryService {
-    ProductCategoryResult GetCategoryId(Integer category_id);
+    ProductCategoryResult GetCategoryName(String category_name);
 }

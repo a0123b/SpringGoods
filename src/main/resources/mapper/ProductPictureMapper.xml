@@ -17,4 +17,9 @@
         where product_id = #{product_id}
     </select>
 
+    <update id="updateImg" parameterType="edu.neusoft.domain.ProductPicture">
+        update product_picture set
+        product_picture = #{product_picture}
+        where id = #{id}
+    </update>
 </mapper>
